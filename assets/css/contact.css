@@ -1,0 +1,40 @@
+/* ------------------ CONTACT SECTION ------------------------- */
+.contact-row {
+    width: 350px;
+    margin: 30px auto;
+  }
+  .contact-row h1 {
+    text-align: center;
+  }
+  .contact-row form {
+    margin-top: 20px;
+  }
+  .contact-row form div {
+    margin: 10px 0;
+  }
+  .contact-row form label {
+    font-weight: bold;
+  }
+  .contact-row input,
+  .contact-row select,
+  .contact-row textarea {
+    width: 100%;
+    border: none;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+  }
+  .contact-row textarea {
+    resize: none;
+    height: 100px;
+  }
+  .contact-row button {
+    float: right;
+    background-color: darkcyan;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 20px;
+    color: white;
+    box-shadow: 1px 1px 5px black;
+    cursor: pointer;
+  }

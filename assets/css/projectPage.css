@@ -1,0 +1,87 @@
+/* ----------- PROJECT PAGE ----------------- */
+.container {
+  /* width: 100%; */
+  margin: 50px;
+  padding: 0 50px;
+}
+.container h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.container .project-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.project-row .left-row {
+  flex: 2;
+  margin: 20px;
+  padding: 20px;
+}
+.project-row .left-row img {
+  width: 100%;
+}
+.project-row .right-row {
+  flex: 1;
+  width: 100%;
+  /* margin: 20px; */
+  /* padding: 20px; */
+}
+.project-row .right-row h4 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.project-row .right-row p {
+  margin: 10px;
+  font-size: 18px;
+}
+.project-row .right-row p i {
+  vertical-align: middle;
+  font-size: 20px;
+  margin-right: 5px;
+}
+.project-row .right-row .icons {
+  display: flex;
+}
+.content {
+  text-align: justify;
+}
+
+@media only screen and (max-width: 1035px) {
+  .project-row .left-row{
+    flex: 1;
+  }
+}
+
+@media only screen and (max-width: 855px) {
+  .container .project-row{
+    flex-direction: column;
+  }
+  .project-row .right-row{
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    margin: 20px;
+    padding: 0 20px;
+  }
+  .container h1 {
+    margin-bottom: 0;
+  }
+  .project-row .left-row {
+    padding: 0;
+  }
+  .project-row .right-row{
+    flex-direction: column;
+  }
+  .project-row .right-row h4{
+    text-align: center;
+  }
+  .project-row .right-row p{
+    margin-left: 50px;
+  }
+}

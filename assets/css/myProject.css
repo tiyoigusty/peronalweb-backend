@@ -1,0 +1,153 @@
+/* ----------------- ADD PROJECT -------------------- */
+.addProject-row {
+    width: 400px;
+    margin: 30px auto;
+  }
+  .addProject-row h1 {
+    text-align: center;
+  }
+  .addProject-row form {
+    margin-top: 20px;
+  }
+  .addProject-row form div {
+    margin: 10px 0;
+  }
+  .addProject-row form label {
+    font-weight: bold;
+  }
+  .addProject-row input,
+  .addProject-row textarea {
+    width: 100%;
+    border: none;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+  }
+  .addProject-row form .date {
+    display: flex;
+    justify-content: space-between;
+  }
+  .addProject-row form textarea {
+    resize: none;
+    height: 100px;
+  }
+  .addProject-row form .technology input {
+    width: auto;
+    margin-right: 5px;
+  }
+  .addProject-row form .technology .checkBox-row {
+    display: flex;
+    margin: -10px 0;
+  }
+  .addProject-row form .technology .checkBox-row div label {
+    font-weight: lighter;
+    /* margin-bottom: 5px; */
+    margin-right: 80px;
+    width: 100px;
+  }
+  .addProject-row form .uploadFile .uploadBox {
+    background-color: white;
+    padding: 0;
+    height: 30px;
+  }
+  ::-webkit-file-upload-button {
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  ::-webkit-file-upload-button:hover {
+    background-color: darkcyan;
+  }
+  .addProject-row form .uploadFile i {
+    position: relative;
+    top: -25px;
+    left: 375px;
+    font-size: 20px;
+  }
+  .addProject-row form button {
+    float: right;
+    background-color: darkcyan;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 5px 20px;
+    color: white;
+    box-shadow: 1px 1px 5px black;
+    cursor: pointer;
+  }
+  
+  @media only screen and (max-width: 550px){
+    .addProject-row {
+      width: 350px;
+    }
+    .addProject-row form .uploadFile i {
+      left: 325px;
+    }
+  }
+  
+  /* ----------------- MY PROJECT -------------------- */
+  #myProject {
+    background-color: white;
+    margin-top: 100px;
+    padding: 50px 30px;
+  }
+  #myProject h1 {
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  #myProject .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  #myProject .row .list {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 4px black;
+    border-radius: 5px;
+  }
+  #myProject .row .list img {
+    width: 100%;
+    height: 200px;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: top;
+  }
+  #myProject .row .list a {
+    text-decoration: none;
+    color: black;
+  }
+  #myProject .row .list p {
+    padding: 5px 0;
+  }
+  #myProject .row .list .projectName {
+    font-size: 20px;
+  }
+  #myProject .row .list .date {
+    font-size: 15px;
+    font-weight: lighter;
+    color: rgba(0, 0, 0, 0.726);
+  }
+  #myProject .row .list .desc {
+    text-align: justify;
+  }
+  #myProject .row .list .icons i {
+    font-size: 30px;
+  }
+  #myProject .row .list .btn {
+    display: flex;
+  }
+  #myProject .row .list .btn button {
+    width: 100%;
+    margin: 5px;
+    background-color: darkcyan;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 20px;
+    color: white;
+    box-shadow: 1px 1px 5px black;
+    cursor: pointer;
+  }

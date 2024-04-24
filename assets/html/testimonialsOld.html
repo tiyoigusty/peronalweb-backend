@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testimonials</title>
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/testimonials.css" />
+  </head>
+  <body>
+    <nav>
+      <ul class="navbar">
+        <h1>LOGO.</h1>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="myProject.html">My Projects</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+      </ul>
+
+      <div class="button">
+        <a href="contactForm.html">Contact Me</a>
+      </div>
+
+      <div class="btn-menu" onclick="toggleMenu()">
+        <i class="bx bx-menu"></i>
+      </div>
+    </nav>
+
+    <div class="nav-menu hide">
+      <a href="index.html">Home</a>
+      <a href="myProject.html">My Projects</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="contactForm.html">Contact Me</a>
+    </div>
+
+    <div class="container">
+      <h1>My Testimonials</h1>
+
+      <div class="rating">
+        <h3>Rating by Star</h3>
+        <div class="row-star">
+          <div class="star" onclick="allTestimonial()">
+            <p>All <i class="bx bxs-star"></i></p>
+          </div>
+          <div class="star" onclick="rateTestimonial(1)">
+            <p>1 <i class="bx bxs-star"></i></p>
+          </div>
+          <div class="star" onclick="rateTestimonial(2)">
+            <p>2 <i class="bx bxs-star"></i></p>
+          </div>
+          <div class="star" onclick="rateTestimonial(3)">
+            <p>3 <i class="bx bxs-star"></i></p>
+          </div>
+          <div class="star" onclick="rateTestimonial(4)">
+            <p>4 <i class="bx bxs-star"></i></p>
+          </div>
+          <div class="star" onclick="rateTestimonial(5)">
+            <p>5 <i class="bx bxs-star"></i></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="row">
+        <!-- <div class="testimonial">
+          <img src="./assets/img/profpic.jpeg" alt="picture" />
+          <p class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum?</p>
+          <p class="author"><b>Name</b></p>
+        </div>
+
+        <div class="testimonial">
+          <img src="./assets/img/profpic.jpeg" alt="picture" />
+          <p class="message">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis tenetur asperiores iusto iste ipsum fuga ipsam possimus vitae dicta at.</p>
+          <p class="author"><b>Name</b></p>
+        </div>
+
+        <div class="testimonial">
+          <img src="./assets/img/profpic.jpeg" alt="picture" />
+          <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis voluptatibus similique est assumenda deleniti, quo corrupti autem sed molestiae distinctio accusamus aut tenetur ullam, magni, reiciendis corporis doloribus architecto sunt.</p>
+          <p class="author"><b>Name</b></p>
+        </div> -->
+      </div>
+    </div>
+
+    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/testimonials.js"></script>
+  </body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Project</title>
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/myProject.css" />
+  </head>
+  <body>
+    <nav>
+      <ul class="navbar">
+        <h1>LOGO.</h1>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="myProject.html">My Projects</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+      </ul>
+
+      <div class="button">
+        <a href="contactForm.html">Contact Me</a>
+      </div>
+
+      <div class="btn-menu" onclick="toggleMenu()">
+        <i class="bx bx-menu"></i>
+      </div>
+    </nav>
+
+    <div class="nav-menu hide">
+      <a href="index.html">Home</a>
+      <a href="myProject.html">My Projects</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="contactForm.html">Contact Me</a>
+    </div>
+
+    <section class="addProject">
+      <div class="addProject-row">
+        <h1>ADD MY PROJECT</h1>
+
+        <form>
+          <div>
+            <label for="projectName">Project Name</label>
+            <input type="text" name="projectName" id="projectName" />
+          </div>
+          <div class="date">
+            <div class="start">
+              <label for="start">Start Date</label>
+              <input type="date" name="start" id="start" />
+            </div>
+            <div class="end">
+              <label for="end">End Date</label>
+              <input type="date" name="end" id="end" />
+            </div>
+          </div>
+          <div>
+            <label for="description">Description</label>
+            <textarea name="description" id="description"></textarea>
+          </div>
+          <div class="technology">
+            <label>Technologies</label>
+            <div class="checkBox-row">
+              <div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="nodejs"
+                    class="checkbox"
+                    value="Node JS"
+                  />
+                  <label for="nodejs">Node JS</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="reactjs"
+                    class="checkbox"
+                    value="React JS"
+                  />
+                  <label for="reactjs">React JS</label>
+                </div>
+              </div>
+
+              <div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="nextjs"
+                    class="checkbox"
+                    value="Next JS"
+                  />
+                  <label for="nextjs">Next JS</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="textscript"
+                    class="checkbox"
+                    value="TextScript"
+                  />
+                  <label for="textscript">TextScript</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="uploadFile">
+            <label for="uploadImg">Upload Image</label>
+            <input type="file" name="Image" id="uploadImg" class="uploadBox" />
+            <i class="bx bx-paperclip bx-rotate-90"></i>
+          </div>
+          <div>
+            <button type="input" onclick="addProject(event)">Submit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <div id="myProject">
+      <h1>MY PROJECT</h1>
+      <div class="row" id="row">
+        <!-- <div class="list">
+          <img src="./assets/img/profpic.jpeg" alt="project" />
+          <a href="projectPage.html"><h3 class="projectName">Tiyo Mobile Apps</h3></a>
+          <p class="date">Start :  | End : <br> Duration : </p>
+          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum dicta excepturi repellendus pariatur itaque non earum quasi nam nostrum soluta.</p>
+          <p class="icons">
+            <i class='bx bxl-play-store'></i>
+            <i class='bx bxl-android'></i>
+            <i class='bx bxl-java'></i>
+          </p>
+
+          <div class="btn">
+            <button type="button">Edit</button>
+            <button type="button">Delete</button>
+          </div>
+        </div>
+        
+        <div class="list">
+          <img src="./assets/img/profpic.jpeg" alt="project" />
+          <a href="projectPage.html"><h3 class="projectName">Tiyo Mobile Apps</h3></a>
+          <p class="date">Start :  | End : <br> Duration : </p>
+          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum dicta excepturi repellendus pariatur itaque non earum quasi nam nostrum soluta.</p>
+          <p class="icons">
+            <i class='bx bxl-play-store'></i>
+            <i class='bx bxl-android'></i>
+            <i class='bx bxl-java'></i>
+          </p>
+
+          <div class="btn">
+            <button type="button">Edit</button>
+            <button type="button">Delete</button>
+          </div>
+        </div>
+
+        <div class="list">
+          <img src="./assets/img/profpic.jpeg" alt="project" />
+          <a href="projectPage.html"><h3 class="projectName">Tiyo Mobile Apps</h3></a>
+          <p class="date">Start :  | End : <br> Duration : </p>
+          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum dicta excepturi repellendus pariatur itaque non earum quasi nam nostrum soluta.</p>
+          <p class="icons">
+            <i class='bx bxl-play-store'></i>
+            <i class='bx bxl-android'></i>
+            <i class='bx bxl-java'></i>
+          </p>
+
+          <div class="btn">
+            <button type="button">Edit</button>
+            <button type="button">Delete</button>
+          </div>
+        </div>
+
+        <div class="list">
+          <img src="./assets/img/profpic.jpeg" alt="project" />
+          <a href="projectPage.html"><h3 class="projectName">Tiyo Mobile Apps</h3></a>
+          <p class="date">Start :  | End : <br> Duration : </p>
+          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum dicta excepturi repellendus pariatur itaque non earum quasi nam nostrum soluta.</p>
+          <p class="icons">
+            <i class='bx bxl-play-store'></i>
+            <i class='bx bxl-android'></i>
+            <i class='bx bxl-java'></i>
+          </p>
+
+          <div class="btn">
+            <button type="button">Edit</button>
+            <button type="button">Delete</button>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <script src="./assets/js/addProject.js"></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>

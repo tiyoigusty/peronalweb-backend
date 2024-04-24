@@ -1,0 +1,123 @@
+/* ------------------ CONTENT SECTION ------------------------- */
+.container {
+  /* width: 900px; */
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px 100px;
+  padding: 30px 40px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px;
+}
+.container .left-row {
+  /* width: 60%; */
+  flex: 1;
+}
+.container .left-row p {
+  text-align: justify;
+  margin: 20px 0;
+}
+.container .left-row .contact-cv {
+  display: flex;
+  align-items: center;
+}
+.container .left-row .contact-cv button {
+  width: 100px;
+  margin-right: 20px;
+  padding: 5px;
+  background: darkcyan;
+  border: 0.5px solid black;
+  border-radius: 30px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.container .left-row .contact-cv .cv {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+.container .left-row .contact-cv a {
+  text-decoration: none;
+  color: black;
+}
+.container .left-row .contact-cv i {
+  margin-left: 5px;
+  font-size: 20px;
+}
+.container .left-row .sosmed {
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+  margin: 20px 0;
+}
+.container .left-row .sosmed a i {
+  color: white;
+  font-size: 20px;
+  background: darkcyan;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 26px;
+}
+.container .right-row {
+  /* width: 40%; */
+  flex: 1;
+}
+.container .right-row .card {
+  width: 275px;
+  float: right;
+  box-shadow: 3px 3px 10px black;
+}
+.container .right-row .card .img img {
+  width: 100%;
+}
+.container .right-row .card .title {
+  padding: 10px;
+  text-align: center;
+}
+.container .right-row .card .title p {
+  font-size: 20px;
+  font-weight: bold;
+}
+.container .right-row .card .title p span {
+  font-size: 10px;
+  font-weight: lighter;
+}
+
+@media only screen and (max-width: 845px) {
+  .container {
+    flex-direction: column;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 100px;
+    padding: 30px 40px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px;
+  }
+  .container .left-row {
+    width: 100%;
+  }
+  .container .left-row .sosmed {
+    justify-content: center;
+  }
+  .container .right-row {
+    width: 100%;
+  }
+  .container .right-row .card {
+    float: none;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    margin: 20px 40px;
+    padding: 20px 25px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px;
+  }
+}
