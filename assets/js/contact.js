@@ -1,7 +1,9 @@
 // --------------- CONTACT ME ---------------------
 
 // membuat function
-function submitEmail() {
+function submitEmail(e) {
+  e.preventDefault();
+
   // memanggil element
   let name = document.getElementById("name").value;
   let email = document.getElementById("email").value;

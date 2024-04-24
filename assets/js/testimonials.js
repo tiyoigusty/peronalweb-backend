@@ -174,11 +174,17 @@ async function allTestimonial() {
 
   const testimonialHTML = testimonials.map((testimonial) => {
     return `
-        <div class="testimonial">
-          <img src="${testimonial.image}" alt="picture" />
-          <p class="message">${testimonial.message}</p>
-          <p class="author"><b>- ${testimonial.author}</b></p>
-          <p class="rating"><b>${testimonial.rating} <i class="bx bxs-star"></i></b></p>
+        <div class="card testimonial mt-4" style="width: 18rem">
+          <img
+            src=".${testimonial.image}"
+            class="card-img-top p-2"
+            alt="profpic"
+          />
+          <div class="card-body">
+            <p class="message">${testimonial.message}</p>
+            <p class="author mb-0"><b>- ${testimonial.author}</b></p>
+            <p class="rating mb-0"><b>${testimonial.rating} <i class="bx bxs-star"></i></b></p>
+          </div>
         </div>`;
   });
 
@@ -202,12 +208,18 @@ async function rateTestimonial(rating) {
 
   const testimonialHTML = ratedTestimonial.map((testimonial) => {
     return `
-      <div class="testimonial">
-        <img src="${testimonial.image}" alt="picture" />
-        <p class="message">${testimonial.message}</p>
-        <p class="author"><b>- ${testimonial.author}</b></p>
-        <p class="rating"><b>${testimonial.rating} <i class="bx bxs-star"></i></b></p>
-      </div>`;
+        <div class="card testimonial mt-4" style="width: 18rem">
+          <img
+            src=".${testimonial.image}"
+            class="card-img-top p-2"
+            alt="profpic"
+          />
+          <div class="card-body">
+            <p class="message">${testimonial.message}</p>
+            <p class="author mb-0"><b>- ${testimonial.author}</b></p>
+            <p class="rating mb-0"><b>${testimonial.rating} <i class="bx bxs-star"></i></b></p>
+          </div>
+        </div>`;
   });
 
   document.getElementById("row").innerHTML = testimonialHTML.join("");

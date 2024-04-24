@@ -1,7 +1,7 @@
 var dataProject = [];
 
-function addProject(event) {
-  event.preventDefault();
+function addProject(e) {
+  e.preventDefault();
 
   let project = document.getElementById("projectName").value;
   let start = document.getElementById("start").value;
@@ -78,34 +78,34 @@ function addProject(event) {
 
   console.log(dataProject);
 
-  newProject();
+  // newProject();
 }
 
-function newProject() {
-  document.getElementById("row").innerHTML = "";
+// function newProject() {
+//   document.getElementById("row").innerHTML = "";
 
-  for (let i = 0; i < dataProject.length; i++) {
-    const projectPlus = dataProject[i];
+//   for (let i = 0; i < dataProject.length; i++) {
+//     const projectPlus = dataProject[i];
 
-    document.getElementById("row").innerHTML += `
-    <div class="row" id="row">
-      <div class="list">
-        <img src="${projectPlus.image}" alt="project" />
-        <a href="projectPage.html"><h3 class="projectName">${projectPlus.project}</h3></a>
-        <p class="date">Start : ${projectPlus.start} | End : ${projectPlus.end}<br> Duration : ${projectPlus.duration}</p>
-        <p class="desc">${projectPlus.description}</p>
-        <p class="icons">
-          <i class='bx bxl-play-store'></i>
-          <i class='bx bxl-android'></i>
-          <i class='bx bxl-java'></i>
-        </p>
+//     document.getElementById("row").innerHTML += `
+//     <div class="row" id="row">
+//       <div class="list">
+//         <img src="${projectPlus.image}" alt="project" />
+//         <a href="projectPage.html"><h3 class="projectName">${projectPlus.project}</h3></a>
+//         <p class="date">Start : ${projectPlus.start} | End : ${projectPlus.end}<br> Duration : ${projectPlus.duration}</p>
+//         <p class="desc">${projectPlus.description}</p>
+//         <p class="icons">
+//           <i class='bx bxl-play-store'></i>
+//           <i class='bx bxl-android'></i>
+//           <i class='bx bxl-java'></i>
+//         </p>
 
-        <div class="btn">
-          <button type="button">Edit</button>
-          <button type="button">Delete</button>
-        </div>
-      </div>
-    </div>
-    `;
-  }
-}
+//         <div class="btn">
+//           <button type="button">Edit</button>
+//           <button type="button">Delete</button>
+//         </div>
+//       </div>
+//     </div>
+//     `;
+//   }
+// }
