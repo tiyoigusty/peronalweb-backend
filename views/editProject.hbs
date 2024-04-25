@@ -25,7 +25,9 @@
       .btn:hover { background-color: rgba(0, 139, 139, 0.8) !important; } .icon
       { color: white; font-size: 20px; background: darkcyan; width: 28px;
       height: 28px; text-align: center; border-radius: 50%; line-height: 29px; }
-      label{ margin-top: 5px; } textarea { resize: none; } .form-check{display: flex !important; align-items: center !important; gap: 10px;} #myProject {background-color: white !important;}
+      label{ margin-top: 5px; } textarea { resize: none; } .form-check{display:
+      flex !important; align-items: center !important; gap: 10px;} #myProject
+      {background-color: white !important;}
     </style>
   </head>
   <body>
@@ -67,26 +69,33 @@
     </nav>
 
     <!-- CONTENT -->
-    <form class="row w-50 d-flex my-5 mx-auto" method="post" action="project">
-      <h1 class="text-center mb-3">ADD PROJECT</h1>
+    <form class="row w-50 d-flex my-5 mx-auto" method="post" action="/submitproject">
+    <input name="id" value="{{dataProject.id}}" hidden>
+      <h1 class="text-center mb-3">EDIT PROJECT</h1>
       <div class="">
         <label for="projectName" class="form-label fw-medium">Project Name</label>
-        <input type="text" class="form-control" id="projectName" name="project" />
+        <input
+          type="text"
+          class="form-control"
+          id="projectName"
+          name="project"
+          value="{{dataProject.project}}"
+        />
       </div>
       <div class="col-6">
         <label for="start" class="form-label fw-medium">Start Date</label>
-        <input type="date" class="form-control" id="start" name="start" />
+        <input type="date" class="form-control" id="start" name="start" value="{{dataProject.start}}"/>
       </div>
       <div class="col-6">
         <label for="end" class="form-label fw-medium">End Date</label>
-        <input type="date" class="form-control" id="end" name="end" />
+        <input type="date" class="form-control" id="end" name="end" value="{{dataProject.end}}"/>
       </div>
       <div class="">
         <label
           for="description"
           class="form-label fw-medium"
         >Description</label>
-        <textarea class="form-control" id="description" name="desc"></textarea>
+        <textarea class="form-control" id="description" name="desc">{{dataProject.desc}}</textarea>
       </div>
 
       <div class="">
@@ -170,6 +179,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    {{!-- <script src="../assets/js/addProject.js"></script> --}}
+    {{! <script src="../assets/js/addProject.js"></script> }}
   </body>
 </html>

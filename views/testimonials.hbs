@@ -57,7 +57,7 @@
               <a class="nav-link" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="addProject">Add My Project</a>
+              <a class="nav-link" href="project">Add My Project</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="testimonials">Testimonials</a>
@@ -100,18 +100,20 @@
       </div>
 
       <div id="row" class="d-flex mt-3 justify-content-evenly flex-wrap">
-        {{! <div class="card testimonial mt-4" style="width: 18rem">
+        {{#each testimonial}}
+        <div class="card testimonial mt-4" style="width: 18rem">
           <img
-            src="../assets/img/profpic.jpeg"
+            src="{{image}}"
             class="card-img-top p-2"
             alt="profpic"
           />
           <div class="card-body">
-            <p class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum?</p>
-            <p class="author mb-0"><b>Name</b></p>
-            <p class="rating mb-0"><b>5 <i class="bx bxs-star"></i></b></p>
+            <p class="message">{{message}}</p>
+            <p class="author mb-0"><b>- {{author}}</b></p>
+            <p class="rating mb-0"><b>{{rating}} <i class="bx bxs-star"></i></b></p>
           </div>
-        </div> }}
+        </div>
+        {{/each}}
       </div>
     </div>
 
@@ -120,6 +122,5 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="../assets/js/testimonials.js"></script>
   </body>
 </html>
