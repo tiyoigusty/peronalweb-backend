@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -19,47 +18,21 @@
     />
 
     <style>
-      body{
-        background-color: whitesmoke;
-      }
-      .navbar{
-        background-color: white !important;
-      }
-      .nav-link {
-        color: black !important;
-      }
-      .nav-link:hover {
-        color: darkcyan !important;
-      }
-      .active {
-        color: darkcyan !important;
-      }
-      .btn {
-        background-color: darkcyan !important;
-        color: white !important;
-      }
-      .btn:hover {
-        background-color: rgba(0, 139, 139, 0.8) !important;
-      }
-      .icon {
-        color: white;
-        font-size: 20px;
-        background: darkcyan;
-        width: 28px;
-        height: 28px;
-        text-align: center;
-        border-radius: 50%;
-        line-height: 29px;
-      }
+      body{ background-color: whitesmoke; } .navbar{ background-color: white
+      !important; } .nav-link { color: black !important; } .nav-link:hover {
+      color: darkcyan !important; } .active { color: darkcyan !important; } .btn
+      { background-color: darkcyan !important; color: white !important; }
+      .btn:hover { background-color: rgba(0, 139, 139, 0.8) !important; } .icon
+      { color: white; font-size: 20px; background: darkcyan; width: 28px;
+      height: 28px; text-align: center; border-radius: 50%; line-height: 29px; }
     </style>
   </head>
   <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid mx-5">
-        <a class="navbar-brand font-size-base fw-bold" href="/"
-          ><h2>LOGO.</h2></a
-        >
+        <a class="navbar-brand font-size-base fw-bold" href="/"><h2
+          >LOGO.</h2></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -77,57 +50,94 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="project">Add My Project</a>
-            </li>
+            {{#if isLogin}}
+              <li class="nav-item">
+                <a class="nav-link" href="project">Add My Project</a>
+              </li>
+            {{/if}}
             <li class="nav-item">
               <a class="nav-link" href="testimonials">Testimonials</a>
             </li>
           </ul>
 
-          <a href="contactForm" class="btn btn-outline-success">
-            Contact Me
-          </a>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                aria-current="page"
+                href="/register"
+              >Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            {{#if isLogin}}
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Hello,
+                  {{dataUser.name}}
+                </a>
+                <ul class="dropdown-menu">
+                  <form action="/logout" method="post">
+                  <button class="dropdown-item text-center align-item-center">Logout</button>
+                  </form>
+                </ul>
+              </li>
+            {{/if}}
+            <li class="nav-item ms-4">
+              <a href="contactForm" class="btn btn-outline-success">
+                Contact Me
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
 
     <!-- CONTENT -->
     <section class="container my-5 mx-auto">
-      <h1 class="text-center mb-3">Tiyos Mobile Apps</h1>
-      
+      <h1 class="text-center mb-3">{{dataProject.project}}</h1>
+
       <div class="project-row d-flex gap-5">
-          <div class="left-row col-6">
-              <img src="./assets/img/project-list.jpg" class="w-100" alt="project1" />
+        <div class="left-row col-6">
+          <img src="{{dataProject.image}}" class="w-100" alt="project1" />
+        </div>
+
+        <div class="right-row col-6 align-content-center">
+          <div class="row">
+            <h4>Duration</h4>
+            <p><i class="bx bxs-calendar"></i>{{dataProject.start}}
+              -
+              {{dataProject.end}}</p>
+            <p><i class="bx bxs-time-five"></i>{{dataProject.duration}}</p>
           </div>
 
-          <div class="right-row col-6 align-content-center">
-            <div class="row">
-              <h4>Duration</h4>
-              <p><i class='bx bxs-calendar' ></i>5 April 2024 - 5 May 2024</p>
-              <p><i class='bx bxs-time-five'></i>1 Month</p>
-            </div>
-
-            <div class="row">
-              <h4>Technologies</h4>
-              <div class="icons d-flex gap-5">
-                <div>
-                  <p><i class='bx bxl-react'></i>React JS</p>
-                  <p><i class='bx bxl-nodejs' ></i>Node JS</p>
-                </div>
-                <div>
-                  <p><i class='bx bxl-javascript' ></i>JavaScript</p>
-                  <p><i class='bx bxl-bootstrap'></i>Bootstrap</p>
-                </div>
+          <div class="row">
+            <h4>Technologies</h4>
+            <div class="icons d-flex gap-5">
+              <div>
+                <p><i class="bx bxl-react"></i>React JS</p>
+                <p><i class="bx bxl-nodejs"></i>Node JS</p>
+              </div>
+              <div>
+                <p><i class="bx bxl-javascript"></i>JavaScript</p>
+                <p><i class="bx bxl-bootstrap"></i>Bootstrap</p>
               </div>
             </div>
           </div>
+        </div>
       </div>
 
       <div class="content mt-3">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis aliquam modi sed numquam sequi consectetur, aliquid ducimus hic libero molestias accusantium exercitationem voluptatum necessitatibus tempore esse, laborum harum vero fugit dolor animi. Mollitia quos sit quo possimus ratione amet similique laudantium voluptatum, molestiae repellat modi illum natus optio voluptas odio quaerat autem. Nihil repellat nesciunt esse porro assumenda! Accusantium excepturi culpa modi soluta fugiat itaque temporibus corporis aut ducimus. Nostrum culpa eius officiis perferendis eum asperiores vero cum earum rem reiciendis rerum iste iusto non excepturi corporis architecto tenetur ipsum odit esse, amet hic accusantium molestias a error. Pariatur sapiente esse, quisquam magnam cumque numquam saepe laudantium distinctio enim minus amet. Delectus, asperiores distinctio neque modi necessitatibus magnam. Architecto vitae est consequatur debitis rerum veritatis eveniet error? Nemo provident aspernatur voluptatibus. Vero, quae beatae eos distinctio earum quis fugiat qui, quibusdam ullam perferendis quisquam quasi deleniti error molestiae voluptatibus maxime aspernatur iusto sit. Aspernatur illum in dolorem, explicabo ipsam, natus, blanditiis ex necessitatibus commodi soluta delectus praesentium eum repudiandae. Architecto ipsam veniam earum aut nemo expedita nobis laudantium corporis cupiditate nisi perspiciatis eaque iusto nam, dignissimos praesentium repellendus voluptatem maxime at numquam cum harum ratione officia asperiores voluptate. <br> Libero molestiae error dolore nam minus, architecto nihil dignissimos labore rem, voluptatibus provident expedita assumenda quibusdam. Ipsa necessitatibus quis quod cupiditate esse est aliquam, inventore architecto facilis quam quia, nesciunt atque ducimus tempore iure veritatis. Maiores praesentium minus similique temporibus iste ad labore neque atque minima non obcaecati fugiat, delectus cupiditate ut quidem facere quae quos. Sequi voluptates rem dolorum alias veniam commodi doloremque, placeat recusandae quibusdam est minus eius, voluptatem sapiente quas dignissimos qui quaerat a deleniti illum adipisci ea, totam quos? Harum, eligendi! Facilis, ipsum iste aut inventore eaque placeat dolor minus nisi voluptates sequi veniam quae, repudiandae dolores minima? Voluptates ducimus iure quisquam aliquam sapiente id maiores earum reiciendis assumenda ut sunt dignissimos nam magnam, natus harum vero? Illo, facilis soluta. Cupiditate quis commodi tempore quos neque repudiandae magni cum qui provident esse dicta aspernatur voluptatem ducimus, corporis officia consectetur quam non ipsam fugiat ut aperiam aliquam sunt. Aspernatur nisi aut dolorum harum perferendis, repudiandae dicta quae commodi amet consequatur fugiat et reprehenderit sint maiores. <br> Debitis suscipit quasi explicabo impedit laborum! Recusandae esse rem aliquam quibusdam soluta atque voluptatem, aspernatur iste voluptate assumenda, deserunt dolorem libero officia tempora ullam tenetur id sed consequatur labore odit et reiciendis. Expedita quos odio nisi perspiciatis minima quod autem sapiente nulla sunt nesciunt reiciendis modi a repudiandae quo non facere impedit sit quidem enim distinctio dolorum, doloremque reprehenderit in. Rem eum, quae sint debitis est voluptatum. Eaque praesentium facere eius in tempora ex error minus modi expedita suscipit et soluta exercitationem, maxime mollitia temporibus similique nostrum repellendus nobis deleniti labore iste harum itaque? Qui ut repellendus sed. Vitae deleniti ducimus corporis eligendi amet nam libero temporibus aperiam quia veniam rem nisi ex inventore perspiciatis, cum adipisci. Minima sit, modi doloremque sequi laboriosam tenetur non assumenda quo saepe nemo, explicabo, blanditiis iure neque inventore aut. Inventore laudantium nihil amet quos commodi totam eius temporibus sunt. Iusto debitis obcaecati in. Necessitatibus velit sunt possimus suscipit aspernatur placeat nisi corporis ab magnam, perspiciatis aperiam saepe provident obcaecati fuga illum illo enim ea? Quisquam perferendis qui sint omnis non modi velit quo, harum recusandae ducimus reprehenderit saepe praesentium molestias maiores atque exercitationem necessitatibus error nesciunt, obcaecati soluta, ipsam quos. <br> Soluta dignissimos odit dicta eius possimus officia non, quisquam voluptatem ipsam eveniet doloribus vitae quae iste exercitationem itaque vero quaerat similique eaque repudiandae. Molestias expedita veniam non minima quo, nesciunt dolores excepturi quis eum adipisci odio facilis corporis at quas dignissimos inventore ipsa hic eveniet similique aperiam vel quam minus. Ipsum deserunt eveniet in, earum, voluptas incidunt possimus reprehenderit atque nemo hic fugit eligendi minima doloremque, reiciendis rem ratione laborum molestiae blanditiis necessitatibus vero. Libero inventore animi qui temporibus eligendi quod provident cum, quam quibusdam, dolore distinctio, excepturi doloremque soluta. Iure commodi necessitatibus ipsa repudiandae aliquam? Tenetur ipsa voluptatem quidem at aliquid. Amet eligendi architecto quibusdam ipsam accusantium vitae expedita iste illo corrupti explicabo, adipisci numquam deleniti eos doloremque, consectetur suscipit? Illum dolor iure consequuntur dolore vel reiciendis atque explicabo saepe accusamus voluptatum perferendis similique, eaque provident, deleniti ab ipsum. Dolores qui quia expedita voluptate adipisci, unde iusto ut asperiores alias tempora sunt, accusantium reprehenderit sit molestiae ullam, ipsa nemo dolore quasi vitae! Veritatis error modi in sed similique odio sint vero voluptas repudiandae mollitia ipsa, aut magni neque blanditiis. Pariatur tenetur aliquid ut neque quo ipsa nobis velit architecto assumenda itaque deleniti perferendis dolorum autem reprehenderit ab blanditiis fugit, voluptatem aspernatur veniam doloremque! Dolorum modi quia nihil tempora. Sequi nobis excepturi corrupti vero tempora exercitationem quas reprehenderit ab delectus consequatur non dignissimos, magnam dolore nemo! Obcaecati numquam voluptatem consectetur laudantium quisquam voluptate id. Debitis sint ratione ducimus in cupiditate recusandae vitae pariatur voluptates maiores, autem odio, corporis, ex consectetur sit repellat ad nostrum distinctio natus labore ut! Deserunt, fugiat. Neque, sunt velit exercitationem ipsam commodi ipsa incidunt inventore placeat, dignissimos, reprehenderit dicta dolorum ad sit tenetur amet eos saepe ullam. Laudantium magnam consequuntur voluptatum est doloremque repellat rem! Tempora ipsum nisi assumenda pariatur nostrum cumque vero earum illum quasi eum reprehenderit dolor, architecto officia illo qui quisquam inventore labore voluptate iste hic saepe enim laborum animi asperiores! Ad sit odit libero, ipsa consequuntur dolorum, tempora alias odio culpa molestiae vitae dolorem quisquam? Tempora nemo praesentium sint? Distinctio perferendis autem repudiandae nostrum reiciendis dignissimos quae cumque facere rem at, magnam enim sed laborum placeat nemo omnis, voluptatum maiores labore quisquam? Eaque esse beatae, voluptatum maxime laboriosam dignissimos neque explicabo quibusdam aliquam debitis repellat consectetur, vitae exercitationem aliquid sint magni. Quia ab animi ipsum! Enim aliquid temporibus veniam commodi dolorum maiores rerum. <br>  Consequuntur porro quas iure asperiores temporibus repellendus beatae id in reiciendis voluptates libero ipsam numquam nulla earum nam accusamus deserunt aut illum facere, esse commodi placeat modi cum? Accusantium sapiente neque, quasi, nesciunt earum nobis eum dolores sequi et architecto quas non magni natus, in iste ex.
+        {{dataProject.desc}}
       </div>
-  </section>
+    </section>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

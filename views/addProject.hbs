@@ -51,17 +51,52 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="project">Add My Project</a>
-            </li>
+            {{#if isLogin}}
+              <li class="nav-item">
+                <a class="nav-link" href="project">Add My Project</a>
+              </li>
+            {{/if}}
             <li class="nav-item">
               <a class="nav-link" href="testimonials">Testimonials</a>
             </li>
           </ul>
 
-          <a href="contactForm" class="btn btn-outline-success">
-            Contact Me
-          </a>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                aria-current="page"
+                href="/register"
+              >Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            {{#if isLogin}}
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Hello,
+                  {{dataUser.name}}
+                </a>
+                <ul class="dropdown-menu">
+                  <form action="/logout" method="post">
+                  <button class="dropdown-item text-center align-item-center">Logout</button>
+                  </form>
+                </ul>
+              </li>
+            {{/if}}
+            <li class="nav-item ms-4">
+              <a href="contactForm" class="btn btn-outline-success">
+                Contact Me
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -98,9 +133,10 @@
                 class="form-check-input"
                 type="checkbox"
                 value="Node JS"
-                id="flexCheckDefault"
+                id="nodejs"
+                name="tech"
               />
-              <label class="form-check-label" for="flexCheckDefault">
+              <label class="form-check-label" for="nodejs">
                 Node JS
               </label>
             </div>
@@ -108,11 +144,12 @@
               <input
                 class="form-check-input"
                 type="checkbox"
-                value="React Js"
-                id="flexCheckChecked"
+                value="React JS"
+                id="reactjs"
+                name="tech"
               />
-              <label class="form-check-label" for="flexCheckChecked">
-                React Js
+              <label class="form-check-label" for="reactjs">
+                React JS
               </label>
             </div>
           </div>
@@ -123,9 +160,10 @@
                 class="form-check-input"
                 type="checkbox"
                 value="Next JS"
-                id="flexCheckDefault"
+                id="nextjs"
+                name="tech"
               />
-              <label class="form-check-label" for="flexCheckDefault">
+              <label class="form-check-label" for="nextjs">
                 Next JS
               </label>
             </div>
@@ -134,9 +172,10 @@
                 class="form-check-input"
                 type="checkbox"
                 value="TypeScript"
-                id="flexCheckChecked"
+                id="typescript"
+                name="tech"
               />
-              <label class="form-check-label" for="flexCheckChecked">
+              <label class="form-check-label" for="typescript">
                 TypeScript
               </label>
             </div>

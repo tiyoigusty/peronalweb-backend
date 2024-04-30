@@ -52,17 +52,54 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="project">Add My Project</a>
-            </li>
+            {{#if isLogin}}
+              <li class="nav-item">
+                <a class="nav-link" href="project">Add My Project</a>
+              </li>
+            {{/if}}
             <li class="nav-item">
               <a class="nav-link" href="testimonials">Testimonials</a>
             </li>
           </ul>
 
-          <a href="contactForm" class="btn btn-outline-success">
-            Contact Me
-          </a>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                aria-current="page"
+                href="/register"
+              >Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            {{#if isLogin}}
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Hello,
+                  {{dataUser.name}}
+                </a>
+                <ul class="dropdown-menu">
+                  <form action="/logout" method="post">
+                    <button
+                      class="dropdown-item text-center align-item-center"
+                    >Logout</button>
+                  </form>
+                </ul>
+              </li>
+            {{/if}}
+            <li class="nav-item ms-4">
+              <a href="contactForm" class="btn btn-outline-success">
+                Contact Me
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -136,18 +173,28 @@
       <h1 class="text-center pt-5">MY PROJECT</h1>
       <hr />
       <div class="container">
-        <a href="project"><button
-            class="btn btn-outline-success d-flex float-end"
-          >Add New Project</button></a>
+        {{#if isLogin}}
+          <a href="project"><button
+              class="btn btn-outline-success d-flex float-end"
+            >Add New Project</button></a>
+        {{/if}}
 
         <div class="row container d-flex justify-content-evenly" id="row">
           {{#each dataProject}}
             <div class="card my-4 d-flex" style="width: 20rem">
               <img src="{{image}}" class="card-img-top pt-3" alt="project" />
               <div class="card-body">
-                <h5 class="card-title">{{project}}</h5>
-                <p class="card-text">Start : {{start}} | End : {{end}}</p>
-                <p class="card-text">Duration : ...</p>
+                <a
+                  href="/projectpage/{{id}}"
+                  class="card-title text-decoration-none"
+                ><b>{{project}}</b></a>
+                <p class="card-text fw-lighter">Start :
+                  {{start}}
+                  | End :
+                  {{end}}
+                  <br />Duration :
+                  {{duration}}
+                </p>
                 <p class="card-text">
                   {{desc}}
                 </p>
@@ -157,9 +204,11 @@
                   <i class="bx bxl-java fs-3"></i>
                 </p>
                 <div class="d-flex justify-content-center gap-3">
-                  <a href="/editproject/{{@index}}" class="col-6"><button class="btn btn-primary w-100">Edit</button></a>
-                  <form class="col-6" method="post" action="/project/{{@index}}">
-                  <button class="btn btn-primary w-100">Delete</button>
+                  <a href="/editproject/{{id}}" class="col-6"><button
+                      class="btn btn-primary w-100"
+                    >Edit</button></a>
+                  <form class="col-6" method="post" action="/project/{{id}}">
+                    <button class="btn btn-primary w-100">Delete</button>
                   </form>
                 </div>
               </div>

@@ -51,17 +51,54 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="project">Add My Project</a>
-            </li>
+            {{#if isLogin}}
+              <li class="nav-item">
+                <a class="nav-link" href="project">Add My Project</a>
+              </li>
+            {{/if}}
             <li class="nav-item">
               <a class="nav-link" href="testimonials">Testimonials</a>
             </li>
           </ul>
 
-          <a href="contactForm" class="btn btn-outline-success">
-            Contact Me
-          </a>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                aria-current="page"
+                href="/register"
+              >Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            {{#if isLogin}}
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Hello,
+                  {{dataUser.name}}
+                </a>
+                <ul class="dropdown-menu">
+                  <form action="/logout" method="post">
+                    <button
+                      class="dropdown-item text-center align-item-center"
+                    >Logout</button>
+                  </form>
+                </ul>
+              </li>
+            {{/if}}
+            <li class="nav-item ms-4">
+              <a href="contactForm" class="btn btn-outline-success">
+                Contact Me
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
