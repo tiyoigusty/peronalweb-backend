@@ -20,11 +20,10 @@
     <style>
       body{ background-color: whitesmoke; } .navbar{ background-color: white
       !important; } .nav-link { color: black !important; } .nav-link:hover {
-      color: darkcyan !important; } .active { color: darkcyan !important; } .btn
-      { background-color: darkcyan !important; color: white !important; }
-      .btn:hover { background-color: rgba(0, 139, 139, 0.8) !important; } .icon
-      { color: white; font-size: 20px; background: darkcyan; width: 28px;
-      height: 28px; text-align: center; border-radius: 50%; line-height: 29px; }
+      color: darkcyan !important; } .active { color: darkcyan !important; }
+      .btn-outline-success { background-color: darkcyan !important; color: white
+      !important; } .btn-outline-success:hover { background-color: rgba(0, 139,
+      139, 0.8) !important; }
     </style>
   </head>
   <body>
@@ -61,6 +60,7 @@
           </ul>
 
           <ul class="navbar-nav mb-2 mb-lg-0">
+            {{#unless isLogin}}
             <li class="nav-item">
               <a
                 class="nav-link"
@@ -71,6 +71,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/login">Login</a>
             </li>
+            {{/unless}}
             {{#if isLogin}}
               <li class="nav-item dropdown">
                 <a
@@ -85,7 +86,9 @@
                 </a>
                 <ul class="dropdown-menu">
                   <form action="/logout" method="post">
-                  <button class="dropdown-item text-center align-item-center">Logout</button>
+                    <button
+                      class="dropdown-item text-center align-item-center btn btn-light"
+                    >Logout</button>
                   </form>
                 </ul>
               </li>
@@ -112,22 +115,22 @@
         <div class="right-row col-6 align-content-center">
           <div class="row">
             <h4>Duration</h4>
-            <p><i class="bx bxs-calendar"></i>{{dataProject.start}}
+            <p><i class="bx bxs-calendar fs-3"></i>{{dataProject.start}}
               -
               {{dataProject.end}}</p>
-            <p><i class="bx bxs-time-five"></i>{{dataProject.duration}}</p>
+            <p><i class="bx bxs-time-five fs-3"></i>{{dataProject.duration}}</p>
           </div>
 
           <div class="row">
             <h4>Technologies</h4>
             <div class="icons d-flex gap-5">
               <div>
-                <p><i class="bx bxl-react"></i>React JS</p>
-                <p><i class="bx bxl-nodejs"></i>Node JS</p>
+                <p><i class="bx bxl-react fs-3"></i>React JS</p>
+                <p><i class="bx bxl-nodejs fs-3"></i>Node JS</p>
               </div>
               <div>
-                <p><i class="bx bxl-javascript"></i>JavaScript</p>
-                <p><i class="bx bxl-bootstrap"></i>Bootstrap</p>
+                <p><i class="bx bxl-javascript fs-3"></i>JavaScript</p>
+                <p><i class="bx bxl-bootstrap fs-3"></i>Bootstrap</p>
               </div>
             </div>
           </div>

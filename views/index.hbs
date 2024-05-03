@@ -20,13 +20,13 @@
     <style>
       body{ background-color: whitesmoke; } .navbar{ background-color: white
       !important; } .nav-link { color: black !important; } .nav-link:hover {
-      color: darkcyan !important; } .active { color: darkcyan !important; } .btn
-      { background-color: darkcyan !important; color: white !important; }
-      .btn:hover { background-color: rgba(0, 139, 139, 0.8) !important; }
-      .containerHero{ background-color: white; padding: 10px; box-shadow: 3px
-      3px 6px black; border-radius: 5px; } .icon { color: white; font-size:
-      20px; background: darkcyan; width: 28px; height: 28px; text-align: center;
-      border-radius: 50%; line-height: 29px; }
+      color: darkcyan !important; } .active { color: darkcyan !important; }
+      .btn-outline-success { background-color: darkcyan !important; color: white
+      !important; } .btn-outline-success:hover { background-color: rgba(0, 139, 139, 0.8)
+      !important; } .containerHero{ background-color: white; padding: 10px;
+      box-shadow: 3px 3px 6px black; border-radius: 5px; } .icon { color: white;
+      font-size: 20px; background: darkcyan; width: 28px; height: 28px;
+      text-align: center; border-radius: 50%; line-height: 29px; }
     </style>
   </head>
   <body>
@@ -63,6 +63,7 @@
           </ul>
 
           <ul class="navbar-nav mb-2 mb-lg-0">
+            {{#unless isLogin}}
             <li class="nav-item">
               <a
                 class="nav-link"
@@ -73,6 +74,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/login">Login</a>
             </li>
+            {{/unless}}
             {{#if isLogin}}
               <li class="nav-item dropdown">
                 <a
@@ -88,7 +90,7 @@
                 <ul class="dropdown-menu">
                   <form action="/logout" method="post">
                     <button
-                      class="dropdown-item text-center align-item-center"
+                      class="dropdown-item text-center align-item-center btn btn-light"
                     >Logout</button>
                   </form>
                 </ul>
@@ -103,6 +105,12 @@
         </div>
       </div>
     </nav>
+
+    {{#if messages.success}}
+      <div class="alert alert-success text-center" role="alert">
+        <b>{{messages.success}}</b>
+      </div>
+    {{/if}}
 
     <!-- CONTENT -->
     <div
@@ -121,7 +129,7 @@
         </p>
 
         <div class="contact-cv d-flex gap-3">
-          <button class="btn">CONTACT</button>
+          <button class="btn btn-outline-success">CONTACT</button>
 
           <div class="cv align-content-center">
             <a
@@ -133,7 +141,8 @@
           </div>
         </div>
 
-        <div class="sosmed my-3 fs-4">
+        <div class="sosmed my-3 fs-4 d-flex gap-2">
+          <h5>FOUND ME ON</h5>
           <a
             href="https://www.linkedin.com/in/agik-gigih-sulistyo-7a82b1244?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             target="_blank"
@@ -194,23 +203,27 @@
                   {{end}}
                   <br />Duration :
                   {{duration}}
+                  <br>Author : {{name}}
                 </p>
                 <p class="card-text">
                   {{desc}}
                 </p>
                 <p class="icons">
-                  <i class="bx bxl-play-store fs-3"></i>
-                  <i class="bx bxl-android fs-3"></i>
-                  <i class="bx bxl-java fs-3"></i>
+                  <i class="{{tech1}}"></i>
+                  <i class="{{tech2}}"></i>
+                  <i class="{{tech3}}"></i>
+                  <i class="{{tech4}}"></i>
                 </p>
-                <div class="d-flex justify-content-center gap-3">
-                  <a href="/editproject/{{id}}" class="col-6"><button
-                      class="btn btn-primary w-100"
-                    >Edit</button></a>
-                  <form class="col-6" method="post" action="/project/{{id}}">
-                    <button class="btn btn-primary w-100">Delete</button>
-                  </form>
-                </div>
+                {{#if ../isLogin}}
+                  <div class="d-flex justify-content-center gap-3">
+                    <a href="/editproject/{{id}}" class="col-6"><button
+                        class="btn btn-outline-success w-100"
+                      >Edit</button></a>
+                    <form class="col-6" method="post" action="/project/{{id}}">
+                      <button class="btn btn-outline-success w-100">Delete</button>
+                    </form>
+                  </div>
+                {{/if}}
               </div>
             </div>
           {{/each}}

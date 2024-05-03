@@ -20,12 +20,13 @@
     <style>
       body{ background-color: whitesmoke; } .navbar{ background-color: white
       !important; } .nav-link { color: black !important; } .nav-link:hover {
-      color: darkcyan !important; } .active { color: darkcyan !important; } .btn
-      { background-color: darkcyan !important; color: white !important; }
-      .btn:hover { background-color: rgba(0, 139, 139, 0.8) !important; } .icon
-      { color: white; font-size: 20px; background: darkcyan; width: 28px;
-      height: 28px; text-align: center; border-radius: 50%; line-height: 29px; }
-      label{ margin-top: 5px; } textarea{ resize: none; }
+      color: darkcyan !important; } .active { color: darkcyan !important; }
+      .btn-outline-success { background-color: darkcyan !important; color: white
+      !important; } .btn-outline-success:hover { background-color: rgba(0, 139,
+      139, 0.8) !important; } .icon { color: white; font-size: 20px; background:
+      darkcyan; width: 28px; height: 28px; text-align: center; border-radius:
+      50%; line-height: 29px; } label{ margin-top: 5px; } textarea{ resize:
+      none; }
     </style>
   </head>
   <body>
@@ -62,6 +63,7 @@
           </ul>
 
           <ul class="navbar-nav mb-2 mb-lg-0">
+            {{#unless isLogin}}
             <li class="nav-item">
               <a
                 class="nav-link"
@@ -72,6 +74,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/login">Login</a>
             </li>
+            {{/unless}}
             {{#if isLogin}}
               <li class="nav-item dropdown">
                 <a
@@ -87,7 +90,7 @@
                 <ul class="dropdown-menu">
                   <form action="/logout" method="post">
                     <button
-                      class="dropdown-item text-center align-item-center"
+                      class="dropdown-item text-center align-item-center btn btn-light"
                     >Logout</button>
                   </form>
                 </ul>
@@ -145,7 +148,7 @@
       <div class="mt-3">
         <button
           type="submit"
-          class="btn btn-primary float-end"
+          class="btn btn-outline-success float-end"
           onclick="submitEmail(event)"
         >Sign in</button>
       </div>

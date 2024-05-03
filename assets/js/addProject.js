@@ -1,4 +1,4 @@
-var dataProject = [];
+// var dataProject = [];
 
 function addProject(e) {
   e.preventDefault();
@@ -39,44 +39,44 @@ function addProject(e) {
   }
 
   // merubah format tanggal
-  let startDate = start.split("/");
-  let endDate = end.split("/");
+  // let startDate = start.split("/");
+  // let endDate = end.split("/");
 
-  let formatStartDate = startDate[2] + "-" + startDate[1] + "-" + startDate[0];
-  let formatEndDate = endDate[2] + "-" + endDate[1] + "-" + endDate[0];
+  // let formatStartDate = startDate[2] + "-" + startDate[1] + "-" + startDate[0];
+  // let formatEndDate = endDate[2] + "-" + endDate[1] + "-" + endDate[0];
 
-  let newStartDate = new Date(formatStartDate);
-  let newEndDate = new Date(formatEndDate);
+  // let newStartDate = new Date(formatStartDate);
+  // let newEndDate = new Date(formatEndDate);
 
-  // menghitung perbedaan waktu
-  let timeDifference = newEndDate - newStartDate;
+  // // menghitung perbedaan waktu
+  // let timeDifference = newEndDate - newStartDate;
 
-  let differenceInDays = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-  let differenceInMonths = Math.floor(differenceInDays / 30.44);
-  let differenceInYears = Math.floor(differenceInMonths / 12);
+  // let differenceInDays = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  // let differenceInMonths = Math.floor(differenceInDays / 30.44);
+  // let differenceInYears = Math.floor(differenceInMonths / 12);
 
-  // menghitung durasi
-  let duration;
+  // // menghitung durasi
+  // let duration;
 
-  if (differenceInYears > 0) {
-    duration = `${differenceInYears} years`;
-  } else if (differenceInMonths > 0) {
-    duration = `${differenceInMonths} month`;
-  } else {
-    duration = `${differenceInDays} days`;
-  }
+  // if (differenceInYears > 0) {
+  //   duration = `${differenceInYears} years`;
+  // } else if (differenceInMonths > 0) {
+  //   duration = `${differenceInMonths} month`;
+  // } else {
+  //   duration = `${differenceInDays} days`;
+  // }
 
-  dataProject.unshift({
-    project: project,
-    start: start,
-    end: end,
-    description: description,
-    technologies: listTech,
-    image: imageURL,
-    duration: duration,
-  });
+  // dataProject.unshift({
+  //   project: project,
+  //   start: start,
+  //   end: end,
+  //   description: description,
+  //   technologies: listTech,
+  //   image: imageURL,
+  //   duration: duration,
+  // });
 
-  console.log(dataProject);
+  // console.log(dataProject);
 
   // newProject();
 }

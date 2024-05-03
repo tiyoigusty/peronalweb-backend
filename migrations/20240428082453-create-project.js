@@ -27,7 +27,16 @@ module.exports = {
       desc: {
         type: Sequelize.STRING,
       },
-      tech: {
+      tech1: {
+        type: Sequelize.STRING,
+      },
+      tech2: {
+        type: Sequelize.STRING,
+      },
+      tech3: {
+        type: Sequelize.STRING,
+      },
+      tech4: {
         type: Sequelize.STRING,
       },
       createdAt: {
@@ -37,6 +46,16 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+      },
+      userId: {
+        type: Sequelize.DataTypes.INTEGER,
+        references: {
+          model: {
+            tableName: "users",
+          },
+          key: "id",
+        },
+        allowNull: false,
       },
     });
   },

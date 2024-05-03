@@ -72,25 +72,6 @@
             <li class="nav-item">
               <a class="nav-link" href="/login">Login</a>
             </li>
-            {{#if isLogin}}
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Hello,
-                  {{dataUser.name}}
-                </a>
-                <ul class="dropdown-menu">
-                  <form action="/logout" method="post">
-                  <button class="dropdown-item text-center align-item-center">Logout</button>
-                  </form>
-                </ul>
-              </li>
-            {{/if}}
             <li class="nav-item ms-4">
               <a href="contactForm" class="btn btn-outline-success">
                 Contact Me
@@ -102,11 +83,21 @@
     </nav>
 
     <!-- CONTENT -->
-    <form class="row w-50 sm- d-flex my-5 mx-auto" action="/register" method="post">
+    <form
+      class="row w-50 sm- d-flex my-5 mx-auto"
+      action="/register"
+      method="post"
+    >
       <h1 class="text-center mb-3">REGISTER YOUR ACCOUNT</h1>
       <div class="">
         <label for="name" class="form-label fw-medium">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Name" name="name" />
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="Name"
+          name="name"
+        />
       </div>
       <div class="">
         <label for="email" class="form-label fw-medium">Email</label>
@@ -129,10 +120,7 @@
         />
       </div>
       <div class="mt-3">
-        <button
-          type="submit"
-          class="btn btn-primary float-end"
-        >Submit</button>
+        <button type="submit" class="btn btn-primary float-end">Submit</button>
       </div>
     </form>
 
