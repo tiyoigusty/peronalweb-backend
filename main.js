@@ -41,7 +41,7 @@ app.set("views", path.join(__dirname, "./views")); // menghubungkan file hbs
 
 // setting middleware untuk membuka folder lainnya
 app.use("/assets", express.static(path.join(__dirname, "./assets"))); // membuka folder assets
-app.use("/uploads", express.static(path.join(__dirname, "./uploads")))
+app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
 app.use(express.urlencoded({ extended: false })); // untuk body parse agar dapat menerima data
 
 app.use(
@@ -67,7 +67,7 @@ app.get("/editproject/:id", editProject); // view
 
 app.post("/project", upload.single("image"), addProject); // service add project
 app.post("/project/:id", deleteProject); // service delete project
-app.post("/submitproject", submitEdit); // service edit project
+app.post("/submitproject", upload.single("image"), submitEdit); // service edit project
 
 app.get("/testimonials", testimonials); // view
 app.get("/contactform", contact); // view
@@ -244,8 +244,9 @@ async function editProject(req, res) {
   res.render("editProject", { dataProject, isLogin, dataUser });
 }
 async function submitEdit(req, res) {
-  const { project, start, end, desc, tech1, tech2, tech3, tech4, id } =
-    req.body; // mengambil data
+  const { id, project, start, end, desc, tech1, tech2, tech3, tech4 } = req.body;
+
+  const image = req.file.path;
 
   let startDate = start.split("/");
   let endDate = end.split("/");
@@ -272,29 +273,23 @@ async function submitEdit(req, res) {
     duration = `${differenceInDays} Days`;
   }
 
-  // dataProject[id] = {
-  //   // mengganti dengan data baru
-  //   project,
-  //   start,
-  //   end,
-  //   duration,
-  //   desc,
-  //   tech,
-  // };
-
   const query = `UPDATE public.projects
-	SET project='${project}', start='${start}', "end"='${end}', "desc"='${desc}', duration='${duration}', tech1='${tech1}', tech2='${tech2}', tech3='${tech3}', tech4='${tech4}'
+	SET image='${image}', project='${project}', start='${start}', "end"='${end}', "desc"='${desc}', duration='${duration}', tech1='${tech1}', tech2='${tech2}', tech3='${tech3}', tech4='${tech4}'
 	WHERE id=${id}`;
   const dataProject = await sequelize.query(query, { type: QueryTypes.UPDATE });
 
   // const dataProject = await projectModel.update(
   //   {
+  //     image,
   //     project,
   //     start,
   //     end,
   //     duration,
   //     desc,
-  //     tech,
+  //     tech1,
+  //     tech2,
+  //     tech3,
+  //     tech4,
   //   },
   //   {
   //     where: {id}
